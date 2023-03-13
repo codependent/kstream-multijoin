@@ -24,13 +24,12 @@ import static org.apache.kafka.streams.StreamsConfig.*;
 @Configuration
 public class KStreamConfiguration {
 
-    public enum Destination{ MAD, BCN }
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
     public KafkaStreamsConfiguration kStreamsConfigs() {
         Map<String, Object> props = Map.of(
-                APPLICATION_ID_CONFIG, "kbranching",
+                APPLICATION_ID_CONFIG, "multijoin",
                 BOOTSTRAP_SERVERS_CONFIG, "localhost:9092",
                 DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName(),
                 DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName(),
